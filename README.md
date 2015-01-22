@@ -6,17 +6,15 @@ This is a Ruby wrapper around the [Lateral API](https://lateral.io/api). It curr
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Until the gem is more complete, it will not be available on rubygems.org. So to add it, add this line to your application's Gemfile:
 
-	gem 'lateral_recommender'
+	gem 'lateral_recommender', github: 'lateral/recommender-gem'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
-Or install it yourself as:
-
-    $ gem install lateral_recommender
+Or you can [install it manually](https://stackoverflow.com/questions/2577346/how-to-install-gem-from-github-source).
 
 ## Usage
 
