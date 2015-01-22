@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lateral.io/personalisation/recommend/?subscription-key=<API_KEY>
+    body:
+      encoding: UTF-8
+      string: user_id=user_id&corpus=wikipedia
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.0.0 (2014-02-24))
+      Accept:
+      - '*/*'
+      Date:
+      - Thu, 22 Jan 2015 15:01:37 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '1396'
+      Content-Type:
+      - application/json
+      Etag:
+      - '"49412ca37deab8f3b719a5150a0e6623"'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Request-Method:
+      - '*'
+      Status:
+      - 201 Created
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - 71613226-3c50-4623-8fbe-9ad5be24d638
+      X-Runtime:
+      - '0.591229'
+      X-Powered-By:
+      - Phusion Passenger 4.0.37
+      Date:
+      - Thu, 22 Jan 2015 15:01:37 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3siZGlzdGFuY2UiOjAuMTA0NjE4LCJ0aXRsZSI6IlVubWFubmVkIE5BU0Eg
+        bWlzc2lvbnMiLCJ1cmwiOiJodHRwOi8vZW4ud2lraXBlZGlhLm9yZy93aWtp
+        P2N1cmlkPTMzMTk2NTE0IiwiZGF0ZSI6IjIwMTQtMTAtMTMiLCJkb2N1bWVu
+        dF9pZCI6Indpa2lwZWRpYS0zMzE5NjUxNCJ9LHsiZGlzdGFuY2UiOjAuMTMy
+        NDQzLCJ0aXRsZSI6IkV4cGxvcmF0aW9uIG9mIE1hcnMiLCJ1cmwiOiJodHRw
+        Oi8vZW4ud2lraXBlZGlhLm9yZy93aWtpP2N1cmlkPTQyNjE0MyIsImRhdGUi
+        OiIyMDE0LTEwLTEzIiwiZG9jdW1lbnRfaWQiOiJ3aWtpcGVkaWEtNDI2MTQz
+        In0seyJkaXN0YW5jZSI6MC4xNDIxMjcsInRpdGxlIjoiU3BhY2UgcHJvYmUi
+        LCJ1cmwiOiJodHRwOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpP2N1cmlkPTEw
+        MjA0NDExIiwiZGF0ZSI6IjIwMTQtMTAtMTMiLCJkb2N1bWVudF9pZCI6Indp
+        a2lwZWRpYS0xMDIwNDQxMSJ9LHsiZGlzdGFuY2UiOjAuMTQ4OTc4LCJ0aXRs
+        ZSI6Ik1vb24gbGFuZGluZyIsInVybCI6Imh0dHA6Ly9lbi53aWtpcGVkaWEu
+        b3JnL3dpa2k/Y3VyaWQ9MTU1ODA3NyIsImRhdGUiOiIyMDE0LTEwLTEzIiwi
+        ZG9jdW1lbnRfaWQiOiJ3aWtpcGVkaWEtMTU1ODA3NyJ9LHsiZGlzdGFuY2Ui
+        OjAuMTYyODA4LCJ0aXRsZSI6IkNhc3NpbmnigJNIdXlnZW5zIiwidXJsIjoi
+        aHR0cDovL2VuLndpa2lwZWRpYS5vcmcvd2lraT9jdXJpZD02Nzk0MSIsImRh
+        dGUiOiIyMDE0LTEwLTEzIiwiZG9jdW1lbnRfaWQiOiJ3aWtpcGVkaWEtNjc5
+        NDEifSx7ImRpc3RhbmNlIjowLjE2NjI1MiwidGl0bGUiOiIyMDAxIE1hcnMg
+        T2R5c3NleSIsInVybCI6Imh0dHA6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2k/
+        Y3VyaWQ9MTg5NTkiLCJkYXRlIjoiMjAxNC0xMC0xMyIsImRvY3VtZW50X2lk
+        Ijoid2lraXBlZGlhLTE4OTU5In0seyJkaXN0YW5jZSI6MC4xNzQxODUsInRp
+        dGxlIjoiTWFycyBPYnNlcnZlciIsInVybCI6Imh0dHA6Ly9lbi53aWtpcGVk
+        aWEub3JnL3dpa2k/Y3VyaWQ9ODI4NTgiLCJkYXRlIjoiMjAxNC0xMC0xMyIs
+        ImRvY3VtZW50X2lkIjoid2lraXBlZGlhLTgyODU4In0seyJkaXN0YW5jZSI6
+        MC4xNzU2NiwidGl0bGUiOiJNYW5uZWQgbWlzc2lvbiB0byBNYXJzIiwidXJs
+        IjoiaHR0cDovL2VuLndpa2lwZWRpYS5vcmcvd2lraT9jdXJpZD0xMTU4OTI5
+        NyIsImRhdGUiOiIyMDE0LTEwLTEzIiwiZG9jdW1lbnRfaWQiOiJ3aWtpcGVk
+        aWEtMTE1ODkyOTcifSx7ImRpc3RhbmNlIjowLjE3NjA0NywidGl0bGUiOiJU
+        aXRhbiBTYXR1cm4gU3lzdGVtIE1pc3Npb24iLCJ1cmwiOiJodHRwOi8vZW4u
+        d2lraXBlZGlhLm9yZy93aWtpP2N1cmlkPTIwNzEzNjMyIiwiZGF0ZSI6IjIw
+        MTQtMTAtMTMiLCJkb2N1bWVudF9pZCI6Indpa2lwZWRpYS0yMDcxMzYzMiJ9
+        XQ==
+    http_version: 
+  recorded_at: Thu, 22 Jan 2015 15:01:39 GMT
+recorded_with: VCR 2.9.3
