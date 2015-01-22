@@ -8,7 +8,7 @@ This is a Ruby wrapper around the [Lateral API](https://lateral.io/api). It curr
 
 Add this line to your application's Gemfile:
 
-    gem 'lateral_recommender'
+	gem 'lateral_recommender'
 
 And then execute:
 
@@ -28,8 +28,10 @@ An API key is required in order to use our API. To do this, [sign up here](https
 
 Initialize `LateralRecommender` with your API key by running:
 
+```ruby
     api = LateralRecommender::API.new YOUR_API_KEY
-    
+```
+
 To add a document to the API call:
 
 	api.add document_id: 'document_id', text: 'document text'
