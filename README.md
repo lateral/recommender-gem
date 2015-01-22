@@ -29,18 +29,22 @@ An API key is required in order to use our API. To do this, [sign up here](https
 Initialize `LateralRecommender` with your API key by running:
 
 ```ruby
-    api = LateralRecommender::API.new YOUR_API_KEY
+api = LateralRecommender::API.new YOUR_API_KEY
 ```
 
 To add a document to the API call:
 
-	api.add document_id: 'document_id', text: 'document text'
+```ruby
+api.add document_id: 'document_id', text: 'document text'
+```
 	
 Please be aware that if you don't send enough meaningful text the API will return an error. So please ensure there is at least 100 or so words in the document you're adding.
 
 To get recommendations for a document, use `near_text`:
 
-	api.near_text text: 'document text'
+```ruby
+api.near_text text: 'document text'
+```
 	
 This returns an array of Hashes containing a `document_id` and `distance`. 
 
@@ -56,13 +60,17 @@ If you don't want to insert your own documents to the API, you can query one of 
 
 To use these, simply initialize `LateralRecommender` with a second argument containing the corpus:
 
-    api = LateralRecommender::API.new YOUR_API_KEY, 'news'
+```ruby
+api = LateralRecommender::API.new YOUR_API_KEY, 'news'
+```
     
 The available values are `movies`, `news`, `arxiv`, `pubmed` or `wikipedia`. We plan to add more in the near future.
 
 Now you can query the API using `near_text` or `near_user` without the need for populating the API with your own content:
 
-	api.near_text text: 'document text'
+```ruby
+api.near_text text: 'document text'
+```
 	
 #### Managing users
 
@@ -72,15 +80,21 @@ A feature of the API is to be able to add a representation of a user. The user i
 
 To add a user:
 
-	api.add_user 'user_id'
+```ruby
+api.add_user 'user_id'
+```
 	
 To add a document to that user:
 	
-	api.add_user_document 'user_id', 'document_id', 'document text'
+```ruby
+api.add_user_document 'user_id', 'document_id', 'document text'
+```
 	
 You can do this as many times as you want to build a more complete picture of the user. Then, to query for recommendations for that user:
 
-	api.near_user 'user_id'
+```ruby
+api.near_user 'user_id'
+```
 
 The response will be the same format as a `near_text`.
 
