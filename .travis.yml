@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.0
+  - 2.1.1
+  - 2.1.2
+  - 2.1.3
+  - 2.1.4
+  - 2.1.5
+  - 2.2.0
+  - jruby-19mode
+env:
+  global:
+    secure: mYIyaDHB/ySYFdzepyDwII8ddefM9XcJOg+oEsXECk0VJ4IYgAphj5TA9bk4PTzBGVzzxHJuUKtm6E6M5U+hlqDZCm+JtHsoL7HZxpr2pCJfq0BWW4U8yR2rHAukOOCWxg62MY7sZhIX1HC81GxsidwmRRbEzeU03tpmdtdd9bo=

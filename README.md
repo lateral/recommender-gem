@@ -1,5 +1,7 @@
 # LateralRecommender
 
+[![Build Status](https://travis-ci.org/lateral/recommender-gem.svg?branch=master)](https://travis-ci.org/lateral/recommender-gem)
+
 This is a Ruby wrapper around the [Lateral API](https://lateral.io/api). It currently supports `add` and `near_text` from the [Recommender API](https://developers.lateral.io/docs/services/546b2cc23705a70f4cd2766d/operations/546b2e053705a70f4cd2766e) and the complete (experimental) [Personalisation API](https://developers.lateral.io/docs/services/54b7f0923705a712c0f43836/operations/54b7f3753705a712c0f4383f). Over time the missing API methods will be added and this will become a fully featured wrapper around the Lateral API.
 
 *For the full API specification please see the [documentation here](https://developers.lateral.io/docs/services/).*

@@ -1,4 +1,4 @@
-require 'env_vars'
+require 'env_vars' unless ENV.include? 'TRAVIS_BUILD_ID'
 require 'vcr'
 require 'ap'
 require 'lateral_recommender'
