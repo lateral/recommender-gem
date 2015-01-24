@@ -1,4 +1,5 @@
 require 'lateral_recommender/version'
+require 'httpclient'
 require 'active_support/core_ext/hash'
 
 module LateralRecommender
