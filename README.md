@@ -40,10 +40,16 @@ api.add document_id: 'document_id', text: 'document text'
 
 Please be aware that if you don't send enough meaningful text the API will return an error. So please ensure there is at least 100 or so words in the document you're adding.
 
-To get recommendations for a document, use `near_text`:
+To get recommendations for some text, use `near_text`:
 
 ```ruby
-api.near_text text: 'document text'
+api.near_text 'document text'
+```
+
+To get recommendations for a document that's in the API, use `near_id`:
+
+```ruby
+api.near_id 'document_id'
 ```
 
 This returns an array of Hashes containing a `document_id` and `distance`.
@@ -69,7 +75,7 @@ The available values are `movies`, `news`, `arxiv`, `pubmed` or `wikipedia`. We 
 Now you can query the API using `near_text` or `near_user` without the need for populating the API with your own content:
 
 ```ruby
-api.near_text text: 'document text'
+api.near_text 'document text'
 ```
 
 #### Managing users
