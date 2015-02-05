@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - '*/*'
       Date:
-      - Thu, 22 Jan 2015 12:13:03 GMT
+      - Thu, 05 Feb 2015 15:40:04 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - '"daea56294f0589e4a280ebcc12be18b2"'
+      - '"56d7ecacdee0e66f4ae2f2067dda5eab"'
       Vary:
       - Accept-Encoding
       Server:
@@ -41,16 +41,16 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - 9d65956e-3ca2-43ef-88cd-b61bdd86c7a2
+      - 9c7a3ee4-4c84-4655-ad1d-a8d4dc4fed0b
       X-Runtime:
-      - '0.020783'
+      - '0.035732'
       X-Powered-By:
       - Phusion Passenger 4.0.37
       Date:
-      - Thu, 22 Jan 2015 12:13:03 GMT
+      - Thu, 05 Feb 2015 15:40:04 GMT
     body:
       encoding: UTF-8
-      string: '{"id":"user_id","created_at":"2015-01-22T12:13:04.002Z","updated_at":"2015-01-22T12:13:04.002Z"}'
+      string: '{"id":"user_id","created_at":"2015-02-05T15:40:04.608Z","updated_at":"2015-02-05T15:40:04.608Z"}'
     http_version: 
-  recorded_at: Thu, 22 Jan 2015 12:13:04 GMT
+  recorded_at: Thu, 05 Feb 2015 15:40:04 GMT
 recorded_with: VCR 2.9.3

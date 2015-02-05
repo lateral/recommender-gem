@@ -1,6 +1,7 @@
 require 'lateral_recommender/version'
 require 'httpclient'
 require 'active_support/core_ext/hash'
+require 'json'
 
 module LateralRecommender
   class API
@@ -33,6 +34,17 @@ module LateralRecommender
     # @return [Array] An array of Hashes containing the recommendations
     def near_text(text, opts = {})
       post "#{@corpora}/recommend", { text: text }.merge(opts)
+    end
+
+    # Get recommendations for the provided id
+    #
+    # @param [String] text The ID of the document to get recommendations for.
+    # @param [Hash] opts Additional options for the request.
+    # @option opts [Integer] :results (20) How many results to return
+    # @option opts [Array] :select_from An array of IDs to return results from
+    # @return [Array] An array of Hashes containing the recommendations
+    def near_id(id, opts = {})
+      post "#{@corpora}/recommend", { document_id: id }.merge(opts)
     end
 
     # Get recommendations for the provided text

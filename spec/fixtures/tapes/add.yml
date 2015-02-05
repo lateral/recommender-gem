@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - '*/*'
       Date:
-      - Thu, 22 Jan 2015 12:10:15 GMT
+      - Thu, 05 Feb 2015 15:36:52 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - Microsoft-HTTPAPI/2.0
       Date:
-      - Thu, 22 Jan 2015 12:10:14 GMT
+      - Thu, 05 Feb 2015 15:37:01 GMT
     body:
       encoding: UTF-8
       string: '{"text": "Space exploration\nJump to: navigation , search\nSaturn V
@@ -508,8 +508,8 @@ http_interactions:
         with strong arguments both for and against. In particular, the making of national
         territorial claims in outer space and on celestial bodies has been specifically
         proscribed by the Outer Space Treaty , which had been, as of 2012 [update]
-        , ratified by all spacefaring nations . [46]", "created_at": "2015-01-22 12:08:28.488731",
+        , ratified by all spacefaring nations . [46]", "created_at": "2015-02-05 15:34:54.829682",
         "meta": "{}", "document_id": "doc_id"}'
     http_version: 
-  recorded_at: Thu, 22 Jan 2015 12:10:15 GMT
+  recorded_at: Thu, 05 Feb 2015 15:37:01 GMT
 recorded_with: VCR 2.9.3

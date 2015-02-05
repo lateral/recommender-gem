@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - '*/*'
       Date:
-      - Thu, 22 Jan 2015 12:16:17 GMT
+      - Thu, 05 Feb 2015 15:40:07 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -23,11 +23,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Length:
-      - '1500'
+      - '827'
       Content-Type:
       - application/json
       Etag:
-      - '"b01742674b89e96051138ba413c01a32"'
+      - '"367b12af39d52ac6309cef5a50fb6e2c"'
       Vary:
       - Accept-Encoding
       Server:
@@ -41,16 +41,16 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - e88cae94-3072-4369-b8be-e90ecf46e496
+      - 6e134685-e2a4-4212-a395-bcc7f911d0c3
       X-Runtime:
-      - '4.181140'
+      - '0.449280'
       X-Powered-By:
       - Phusion Passenger 4.0.37
       Date:
-      - Thu, 22 Jan 2015 12:16:21 GMT
+      - Thu, 05 Feb 2015 15:40:07 GMT
     body:
       encoding: UTF-8
-      string: '[{"distance":0.037363,"document_id":"cd6768a1728540ad236a56222aa6091ed77dee66"},{"distance":0.038514,"document_id":"90a5cd5f12be3728639af3d5241234f85318180b"},{"distance":0.045084,"document_id":"dfb6a3ded6f529caccbe48ac3afb4b4b8e71c6e4"},{"distance":0.055281,"document_id":"da12481ae8e3b50b068fa0f3b789b378fd4ba579"},{"distance":0.061032,"document_id":"755b92566bdba922b25d0aca35b8a55a26ea0afe"},{"distance":0.061196,"document_id":"18f9d225e1ce3481fc9d8f807963f03214c8deff"},{"distance":0.065062,"document_id":"2cec551a2b13e5aaf1232a89c23e526ec0cac87a"},{"distance":0.068848,"document_id":"3adda1875544ac31c0cf0ea15766f8c68b1931bf"},{"distance":0.069019,"document_id":"73e56d02ee2e3ebb1f6cf597d8cbdfc0b8dd3c7f"},{"distance":0.069376,"document_id":"9b5279dc76a16755093c024e030b6b8cd3597263"},{"distance":0.069549,"document_id":"f10d96260b3396a43234cba32930bcae90bd169e"},{"distance":0.069562,"document_id":"76c7db4d91d0b283915c2c627d8fc9a10c148ad2"},{"distance":0.070198,"document_id":"75ed00b3461e06139adfbddae0f969333d98dbcd"},{"distance":0.07029,"document_id":"3c163d81d96635405b9bb397b37f1ee4d1693b36"},{"distance":0.070537,"document_id":"28ebd0768dc241246fc7cc0721dfdb6d68f526e0"},{"distance":0.070935,"document_id":"06ccde6316db281fa7c2cbd44b74f40b429de5cf"},{"distance":0.07117,"document_id":"7fd41795e6aece7152378766fca4f05d236268e1"},{"distance":0.071282,"document_id":"979cbf411f0353586c405d6e2f9ce403e3350957"},{"distance":0.071303,"document_id":"9ce6424d2bdfc9b5cb7b2f04a349693db5f11511"}]'
+      string: '[{"distance":0.038537,"document_id":"16400"},{"distance":0.04328,"document_id":"21299"},{"distance":0.043744,"document_id":"6824"},{"distance":0.043973,"document_id":"11689"},{"distance":0.045299,"document_id":"433"},{"distance":0.045868,"document_id":"8403"},{"distance":0.04621,"document_id":"13882"},{"distance":0.046248,"document_id":"1391"},{"distance":0.046341,"document_id":"15333"},{"distance":0.046613,"document_id":"4236"},{"distance":0.046821,"document_id":"8443"},{"distance":0.047871,"document_id":"2422"},{"distance":0.048309,"document_id":"22543"},{"distance":0.048513,"document_id":"11235"},{"distance":0.048513,"document_id":"17475"},{"distance":0.049265,"document_id":"26815"},{"distance":0.049301,"document_id":"17266"},{"distance":0.049461,"document_id":"30270"},{"distance":0.049596,"document_id":"17836"}]'
     http_version: 
-  recorded_at: Thu, 22 Jan 2015 12:16:21 GMT
+  recorded_at: Thu, 05 Feb 2015 15:40:07 GMT
 recorded_with: VCR 2.9.3

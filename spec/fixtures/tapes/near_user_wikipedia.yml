@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - '*/*'
       Date:
-      - Thu, 22 Jan 2015 15:01:37 GMT
+      - Thu, 05 Feb 2015 15:40:24 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -41,13 +41,13 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       X-Request-Id:
-      - 71613226-3c50-4623-8fbe-9ad5be24d638
+      - 22ab22b4-7e60-4e9a-8fa9-120fbcd859bb
       X-Runtime:
-      - '0.591229'
+      - '0.439285'
       X-Powered-By:
       - Phusion Passenger 4.0.37
       Date:
-      - Thu, 22 Jan 2015 15:01:37 GMT
+      - Thu, 05 Feb 2015 15:40:24 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -84,5 +84,5 @@ http_interactions:
         MTQtMTAtMTMiLCJkb2N1bWVudF9pZCI6Indpa2lwZWRpYS0yMDcxMzYzMiJ9
         XQ==
     http_version: 
-  recorded_at: Thu, 22 Jan 2015 15:01:39 GMT
+  recorded_at: Thu, 05 Feb 2015 15:40:25 GMT
 recorded_with: VCR 2.9.3

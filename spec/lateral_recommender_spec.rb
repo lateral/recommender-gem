@@ -8,7 +8,7 @@ describe LateralRecommender do
     it 'errors with invalid API key' do
       api = LateralRecommender::API.new 'no'
       VCR.use_cassette('invalid_key') do
-        response = api.near_text text: 'test'
+        response = api.near_text 'test'
         expect(response[:error][:status_code]).to eq(401)
         expect(response[:error][:message]).to include('invalid subscription key')
       end
@@ -24,7 +24,15 @@ describe LateralRecommender do
 
     it 'gets recommendations' do
       VCR.use_cassette('near_text') do
-        response = api.near_text text: body
+        response = api.near_text body
+        expect(response.length).to eq(20)
+        expect(response.first['document_id']).to eq('doc_id')
+      end
+    end
+
+    it 'gets recommendations by ID' do
+      VCR.use_cassette('near_id') do
+        response = api.near_id 'doc_id'
         expect(response.length).to eq(20)
         expect(response.first['document_id']).to eq('doc_id')
       end
@@ -33,8 +41,8 @@ describe LateralRecommender do
     it 'gets recommendations from movies' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'movies'
       VCR.use_cassette('near_text_movies') do
-        response = api.near_text text: body
-        expect(response.length).to eq(20)
+        response = api.near_text body
+        expect(response.length).to eq(19)
         expect(response.first['title']).to eq('First World')
       end
     end
@@ -42,7 +50,7 @@ describe LateralRecommender do
     it 'gets recommendations from news' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'news'
       VCR.use_cassette('near_text_news') do
-        response = api.near_text text: body
+        response = api.near_text body
         expect(response.length).to be > 10 # This should be done better
         expect(response.first['title']).to include('The Space Missions and Events')
       end
@@ -51,7 +59,7 @@ describe LateralRecommender do
     it 'gets recommendations from wikipedia' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'wikipedia'
       VCR.use_cassette('near_text_wikipedia') do
-        response = api.near_text text: body
+        response = api.near_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to eq('Space exploration')
       end
@@ -60,7 +68,7 @@ describe LateralRecommender do
     it 'gets recommendations from pubmed' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'pubmed'
       VCR.use_cassette('near_text_pubmed') do
-        response = api.near_text text: body
+        response = api.near_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to include('NASA and the search')
       end
@@ -69,7 +77,7 @@ describe LateralRecommender do
     it 'gets recommendations from arxiv' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'arxiv'
       VCR.use_cassette('near_text_arxiv') do
-        response = api.near_text text: body
+        response = api.near_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to include('A Lunar L2-Farside')
       end
@@ -104,7 +112,7 @@ describe LateralRecommender do
       api = LateralRecommender::API.new ENV['API_KEY'], 'movies'
       VCR.use_cassette('near_user_movies') do
         response = api.near_user('user_id')
-        expect(response.length).to eq(20)
+        expect(response.length).to eq(19)
         expect(response.first['title']).to include('First World')
       end
     end

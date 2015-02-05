@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lateral.io/recommender/recommend/?subscription-key=<API_KEY>
+    body:
+      encoding: UTF-8
+      string: document_id=doc_id
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.0.0 (2014-02-24))
+      Accept:
+      - '*/*'
+      Date:
+      - Thu, 05 Feb 2015 15:39:26 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '952'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Date:
+      - Thu, 05 Feb 2015 15:39:27 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"distance": 0.000248, "document_id": "doc_id"}, {"distance": 0.03849,
+        "document_id": "16400"}, {"distance": 0.043243, "document_id": "21299"}, {"distance":
+        0.043754, "document_id": "6824"}, {"distance": 0.043945, "document_id": "11689"},
+        {"distance": 0.045342, "document_id": "433"}, {"distance": 0.045867, "document_id":
+        "8403"}, {"distance": 0.046243, "document_id": "13882"}, {"distance": 0.046285,
+        "document_id": "1391"}, {"distance": 0.046396, "document_id": "15333"}, {"distance":
+        0.046684, "document_id": "4236"}, {"distance": 0.046794, "document_id": "8443"},
+        {"distance": 0.047875, "document_id": "2422"}, {"distance": 0.048303, "document_id":
+        "22543"}, {"distance": 0.048475, "document_id": "11235"}, {"distance": 0.048584,
+        "document_id": "17475"}, {"distance": 0.049252, "document_id": "17266"}, {"distance":
+        0.049315, "document_id": "26815"}, {"distance": 0.049454, "document_id": "30270"},
+        {"distance": 0.049636, "document_id": "17836"}]'
+    http_version: 
+  recorded_at: Thu, 05 Feb 2015 15:39:27 GMT
+recorded_with: VCR 2.9.3
