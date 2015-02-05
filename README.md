@@ -37,7 +37,7 @@ To add a document to the API call:
 ```ruby
 api.add document_id: 'document_id', text: 'document text'
 ```
-	
+
 Please be aware that if you don't send enough meaningful text the API will return an error. So please ensure there is at least 100 or so words in the document you're adding.
 
 To get recommendations for a document, use `near_text`:
@@ -45,8 +45,8 @@ To get recommendations for a document, use `near_text`:
 ```ruby
 api.near_text text: 'document text'
 ```
-	
-This returns an array of Hashes containing a `document_id` and `distance`. 
+
+This returns an array of Hashes containing a `document_id` and `distance`.
 
 #### Querying our pre-populated data
 
@@ -63,7 +63,7 @@ To use these, simply initialize `LateralRecommender` with a second argument cont
 ```ruby
 api = LateralRecommender::API.new YOUR_API_KEY, 'news'
 ```
-    
+
 The available values are `movies`, `news`, `arxiv`, `pubmed` or `wikipedia`. We plan to add more in the near future.
 
 Now you can query the API using `near_text` or `near_user` without the need for populating the API with your own content:
@@ -71,7 +71,7 @@ Now you can query the API using `near_text` or `near_user` without the need for 
 ```ruby
 api.near_text text: 'document text'
 ```
-	
+
 #### Managing users
 
 A feature of the API is to be able to add a representation of a user. The user is able to have many documents and when querying the API for recommendations you can specify the user and each of these documents will be used to get recommendations for that user.
@@ -83,13 +83,13 @@ To add a user:
 ```ruby
 api.add_user 'user_id'
 ```
-	
+
 To add a document to that user:
-	
+
 ```ruby
 api.add_user_document 'user_id', 'document_id', 'document text'
 ```
-	
+
 You can do this as many times as you want to build a more complete picture of the user. Then, to query for recommendations for that user:
 
 ```ruby
@@ -106,3 +106,7 @@ The response will be the same format as a `near_text`.
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create a new Pull Request
+
+### Testing
+
+To test the gem, run `bundle exec rspec`. Note: your API key must be un-used.
