@@ -22,7 +22,7 @@ describe LateralRecommender do
       end
     end
 
-    it 'gets recommendations' do
+    it 'gets recommendations from text' do
       VCR.use_cassette('near_text') do
         response = api.near_text body
         expect(response.length).to eq(20)
@@ -38,7 +38,7 @@ describe LateralRecommender do
       end
     end
 
-    it 'gets recommendations from movies' do
+    it 'gets recommendations from text in movies' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'movies'
       VCR.use_cassette('near_text_movies') do
         response = api.near_text body
@@ -47,7 +47,7 @@ describe LateralRecommender do
       end
     end
 
-    it 'gets recommendations from news' do
+    it 'gets recommendations from text in news' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'news'
       VCR.use_cassette('near_text_news') do
         response = api.near_text body
@@ -56,7 +56,7 @@ describe LateralRecommender do
       end
     end
 
-    it 'gets recommendations from wikipedia' do
+    it 'gets recommendations from text in wikipedia' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'wikipedia'
       VCR.use_cassette('near_text_wikipedia') do
         response = api.near_text body
@@ -65,7 +65,7 @@ describe LateralRecommender do
       end
     end
 
-    it 'gets recommendations from pubmed' do
+    it 'gets recommendations from text in pubmed' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'pubmed'
       VCR.use_cassette('near_text_pubmed') do
         response = api.near_text body
@@ -74,12 +74,21 @@ describe LateralRecommender do
       end
     end
 
-    it 'gets recommendations from arxiv' do
+    it 'gets recommendations from text in arxiv' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'arxiv'
       VCR.use_cassette('near_text_arxiv') do
         response = api.near_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to include('A Lunar L2-Farside')
+      end
+    end
+
+    it 'gets recommendations by ID in arxiv' do
+      api = LateralRecommender::API.new ENV['API_KEY'], 'arxiv'
+      VCR.use_cassette('near_id_arxiv') do
+        response = api.near_id 'arxiv-http://arxiv.org/abs/1403.2165'
+        expect(response.length).to eq(10)
+        expect(response.first['title']).to include('Set-valued sorting index')
       end
     end
 

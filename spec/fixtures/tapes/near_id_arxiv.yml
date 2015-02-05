@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lateral.io/collections/arxiv/recommend/?subscription-key=<API_KEY>
+    body:
+      encoding: UTF-8
+      string: document_id=arxiv-http%3A%2F%2Farxiv.org%2Fabs%2F1403.2165
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.6.0.1, ruby 2.0.0 (2014-02-24))
+      Accept:
+      - '*/*'
+      Date:
+      - Thu, 05 Feb 2015 15:55:22 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2823'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-HTTPAPI/2.0
+      Date:
+      - Thu, 05 Feb 2015 15:55:23 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"distance": 0.0, "title": "Set-valued sorting index and joint equidistributions",
+        "url": "http://arxiv.org/abs/1403.2165", "authors": ["Eu, Sen-Pen", "Lo, Yuan-Hsun",
+        "Wong, Tsai-Lien"], "date": "2015-02-05", "document_id": "arxiv-http://arxiv.org/abs/1403.2165"},
+        {"distance": 0.143046, "title": "The sorting index and set-valued joint equidistributions
+        of   $\\mathcal{B}_n$ and $\\mathcal{D}_n$", "url": "http://arxiv.org/abs/1403.2169",
+        "authors": ["Eu, Sen-Peng", "Lo, Yuan-Hsun", "Wong, Tsai-Lien"], "date": "2015-02-05",
+        "document_id": "arxiv-http://arxiv.org/abs/1403.2169"}, {"distance": 0.387619,
+        "title": "Creature forcing and five cardinal characteristics in Cicho\\''{n}''s   diagram",
+        "url": "http://arxiv.org/abs/1402.0367", "authors": ["Fischer, Arthur", "Goldstern,
+        Martin", "Kellner, Jakob", "Shelah, Saharon"], "date": "2015-02-05", "document_id":
+        "arxiv-http://arxiv.org/abs/1402.0367"}, {"distance": 0.47352, "title": "Corpus-based
+        Web Document Summarization using Statistical and Linguistic   Approach", "url":
+        "http://arxiv.org/abs/1304.2476", "authors": ["Hashem, M. M. A.", "Gope, Monika",
+        "Akter, Suraiya Rumana", "Shams, Rushdi", "Hossain, Afrina"], "date": "2015-02-05",
+        "document_id": "arxiv-http://arxiv.org/abs/1304.2476"}, {"distance": 0.485755,
+        "title": "Text as Statistical Mechanics Object", "url": "http://arxiv.org/abs/0810.3416",
+        "authors": ["Korutcheva, E.", "Koroutchev, K."], "date": "2015-02-05", "document_id":
+        "arxiv-http://arxiv.org/abs/0810.3416"}, {"distance": 0.491576, "title": "Text
+        Classification using Artificial Intelligence", "url": "http://arxiv.org/abs/1009.4964",
+        "authors": ["Kamruzzaman, S. M."], "date": "2015-02-05", "document_id": "arxiv-http://arxiv.org/abs/1009.4964"},
+        {"distance": 0.497958, "title": "Text Classification using Data Mining", "url":
+        "http://arxiv.org/abs/1009.4987", "authors": ["Hasan, Ahmed Ryadh", "Haider,
+        Farhana", "Kamruzzaman, S. M."], "date": "2015-02-05", "document_id": "arxiv-http://arxiv.org/abs/1009.4987"},
+        {"distance": 0.504628, "title": "Artex is AnotheR TEXt summarizer", "url":
+        "http://arxiv.org/abs/1210.3312", "authors": ["Torres-Moreno, Juan-Manuel"],
+        "date": "2015-02-05", "document_id": "arxiv-http://arxiv.org/abs/1210.3312"},
+        {"distance": 0.508608, "title": "Text Classification using Association Rule
+        with a Hybrid Concept of   Naive Bayes Classifier and Genetic Algorithm",
+        "url": "http://arxiv.org/abs/1009.4976", "authors": ["Hasan, Ahmed Ryadh",
+        "Haider, Farhana", "Kamruzzaman, S. M."], "date": "2015-02-05", "document_id":
+        "arxiv-http://arxiv.org/abs/1009.4976"}, {"distance": 0.516115, "title": "Comparative
+        Discourse Analysis of Parallel Texts", "url": "http://arxiv.org/abs/cmp-lg/9407022",
+        "authors": ["van der Eijk, Pim"], "date": "2015-02-05", "document_id": "arxiv-http://arxiv.org/abs/cmp-lg/9407022"}]'
+    http_version: 
+  recorded_at: Thu, 05 Feb 2015 15:55:23 GMT
+recorded_with: VCR 2.9.3
