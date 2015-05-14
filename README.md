@@ -2,27 +2,25 @@
 
 [![Build Status](https://travis-ci.org/lateral/recommender-gem.svg?branch=master)](https://travis-ci.org/lateral/recommender-gem)
 
-This is a Ruby wrapper around the [Lateral API](https://lateral.io/api). It currently supports `add` and `near_text` from the [Recommender API](https://developers.lateral.io/docs/services/546b2cc23705a70f4cd2766d/operations/546b2e053705a70f4cd2766e) and the complete (experimental) [Personalisation API](https://developers.lateral.io/docs/services/54b7f0923705a712c0f43836/operations/54b7f3753705a712c0f4383f). Over time the missing API methods will be added and this will become a fully featured wrapper around the Lateral API.
-
-*For the full API specification please see the [documentation here](https://developers.lateral.io/docs/services/).*
+This is a Ruby wrapper around the [Lateral](https://lateral.io/) [Conceptual text-matching API](https://lateral.io/docs/text-matching). At the moment it only supports [/add](https://lateral.io/docs/text-matching/api-reference#add-document-post), [/recommend-by-text](https://lateral.io/docs/text-matching/api-reference#recommend-by-text-post), [/recommend-by-id](https://lateral.io/docs/text-matching/api-reference#recommend-by-id-post) and our [pre-populated recommenders](https://lateral.io/docs/text-matching/pre-populated-recommenders). You can find the full API reference [here](https://lateral.io/docs/text-matching/api-reference).
 
 ## Installation
 
-Until the gem is more complete, it will not be available on rubygems.org. So to add it, add this line to your application's Gemfile:
+Add this line to your application's Gemfile:
 
-	gem 'lateral_recommender', github: 'lateral/recommender-gem'
+```ruby
+gem 'lateral_recommender'
+```
 
 And then execute:
 
-    $ bundle install
-
-Or you can [install it manually](https://stackoverflow.com/questions/2577346/how-to-install-gem-from-github-source).
+	$ bundle install
 
 ## Usage
 
 ### Get an API key
 
-An API key is required in order to use our API. To do this, [sign up here](https://developers.lateral.io/signup/) then visit your [profile](https://developers.lateral.io/developer) and click 'Show' next to where it says `Primary key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`.
+An API key is required in order to use our API. To do this go to our [docs page](https://lateral.io/docs) and click the 'Get Access' button in the top right. Choose the 'Conceptual text-matcher' API and you'll get emailed details of how to get your key.
 
 ### Use the API
 
@@ -32,6 +30,8 @@ Initialize `LateralRecommender` with your API key by running:
 api = LateralRecommender::API.new YOUR_API_KEY
 ```
 
+#### Add a document
+
 To add a document to the API call:
 
 ```ruby
@@ -40,69 +40,58 @@ api.add document_id: 'document_id', text: 'document text'
 
 Please be aware that if you don't send enough meaningful text the API will return an error. So please ensure there is at least 100 or so words in the document you're adding.
 
-To get recommendations for some text, use `near_text`:
+#### Recommend by text
+
+To get recommendations for some text, use `recommend_by_text`:
 
 ```ruby
-api.near_text 'document text'
+api.recommend_by_text 'document text'
 ```
 
-To get recommendations for a document that's in the API, use `near_id`:
+#### Recommend by ID
+
+To get recommendations for a document that's in the API, use `recommend_by_id`:
 
 ```ruby
-api.near_id 'document_id'
+api.recommend_by_id 'document_id'
 ```
-
 This returns an array of Hashes containing a `document_id` and `distance`.
 
-#### Querying our pre-populated data
+#### Pre-populated recommenders
 
-If you don't want to insert your own documents to the API, you can query one of our pre-filled data sets:
+If you don't want to insert your own documents to the API, you can query one of our pre-populated recommenders:
 
-* **[Movies](https://www.freebase.com/film/film?instances)** (experimental) - Movies listed on [Freebase](https://www.freebase.com/) with plots from [Wikipedia](https://en.wikipedia.org)
-* **News** (experimental) - News from multiple outlets updated every 15 minutes
-* **[arXiv](http://arxiv.org/)** - Academic papers in Physics, Mathematics, Computer Science, Quantitative Biology, Quantitative Finance and Statistics
-* **[PubMed](http://www.ncbi.nlm.nih.gov/pubmed)** - Medical journals
-* **[Wikipedia](https://en.wikipedia.org)** - General knowledge
+* **[arXiv](https://lateral.io/docs/text-matching/pre-populated-recommenders#arxiv)** - 1M+ academic papers in Physics, Mathematics and Computer Science (updated daily)
+* **[News](https://lateral.io/docs/text-matching/pre-populated-recommenders#news)** - 250,000+ curated news articles (updated every 15mins)
+* **[PubMed](https://lateral.io/docs/text-matching/pre-populated-recommenders#pubmed)** - Medical journals
+* **[SEC Data](https://lateral.io/docs/text-matching/pre-populated-recommenders#sec-data)** - 6,000+ yearly financial reports / 10-K filings (from 2014)
+* **[Wikipedia](https://lateral.io/docs/text-matching/pre-populated-recommenders#wikipedia)** - 463,000 Wikipedia pages (which had 20+ page views in 2013)
 
-To use these, simply initialize `LateralRecommender` with a second argument containing the corpus:
+To use one of these, initialize `LateralRecommender` with a second argument containing the corpus:
 
 ```ruby
 api = LateralRecommender::API.new YOUR_API_KEY, 'news'
 ```
 
-The available values are `movies`, `news`, `arxiv`, `pubmed` or `wikipedia`. We plan to add more in the near future.
-
-Now you can query the API using `near_text` or `near_user` without the need for populating the API with your own content:
+The available values are `arxiv`, `news`, `pubmed`, `sec` or `wikipedia`. These allow you to query the recommender using `recommend_by_text` or `recommend_by_id` without the need for adding your own documents. By text:
 
 ```ruby
-api.near_text 'document text'
+api.recommend_by_text 'document text'
 ```
 
-#### Managing users
-
-A feature of the API is to be able to add a representation of a user. The user is able to have many documents and when querying the API for recommendations you can specify the user and each of these documents will be used to get recommendations for that user.
-
-*Note: This is an experimental feature of the API*
-
-To add a user:
+Or with a document ID:
 
 ```ruby
-api.add_user 'user_id'
+api.recommend_by_id 'arxiv-http://arxiv.org/abs/1403.2165'
 ```
 
-To add a document to that user:
+Note: For the SEC data, you need to set a collections array:
 
 ```ruby
-api.add_user_document 'user_id', 'document_id', 'document text'
+api.recommend_by_text 'document text', collections: '["item1a"]'
 ```
 
-You can do this as many times as you want to build a more complete picture of the user. Then, to query for recommendations for that user:
-
-```ruby
-api.near_user 'user_id'
-```
-
-The response will be the same format as a `near_text`.
+Read the [Pre-populated-recommenders documentation](https://lateral.io/docs/text-matching/pre-populated-recommenders#top) for more.
 
 ## Contributing
 

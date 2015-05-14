@@ -12,4 +12,4 @@ rvm:
   - jruby-19mode
 env:
   global:
-  - secure: Ri31ozxBLZ9/lzvejfgdtM9LVFdB7kKITRwCSZ9KvSKocy+msPUxND9t8G9cqr6fKU0yzSrYcGdBYP8S3SXOUI+a9Ev5UeQPU8lcZWIg9Bqe4RaIif/anKeCyamoCunReHQ9sxziVSMfg+yn0yoNS8epUA9BbBpqZDeeVMSW9qY=
+  - secure: "G2F3imFzu0RK7aRKe5UMBkjpmKxRWPfCluBQ0sHIzxcV7/haWuIgs2hh6/lA/z7HtcAvq0yPPJIzcuCenvYBgui19/TT4WeteKKtopwPwGElkXar5ch5PVee96kcwCTeQP/UNQZcdZW9AZjog2FaqKaxiKB9P+cVpkRMSRHBDjw="

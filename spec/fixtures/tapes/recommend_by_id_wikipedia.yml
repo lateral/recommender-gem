@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://wikipedia-api.lateral.io/recommend-by-id/?subscription-key=<API_KEY>
+    body:
+      encoding: UTF-8
+      string: document_id=wikipedia-11589297
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 14 May 2015 09:37:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '6841'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - '*'
+      Server:
+      - TornadoServer/4.0.2
+      Via:
+      - kong/0.2.0-2
+    body:
+      encoding: UTF-8
+      string: '[{"distance": 0.0, "title": "Manned mission to Mars", "url": "http://en.wikipedia.org/wiki?curid=11589297",
+        "text": "A manned mission to Mars has been the subject of science fiction,
+        engineering, and scientific proposals throughout the 20th century and into
+        the 21st century. The plans comprise proposals not only to land on but in
+        the end for settling on and terraforming Mars, while exploiting its moons
+        Phobos and Deimos.\nPreliminary work for missions has been undertaken since
+        the 1950s, with planned missions typically taking place 10 to 30 years in
+        the future. ", "permalink_id": "9e677119c316ddc3df2144f99d1cfec5", "date":
+        null, "document_id": "wikipedia-11589297"}, {"distance": 0.139374, "title":
+        "NASA", "url": "http://en.wikipedia.org/wiki?curid=18426568", "text": "The
+        National Aeronautics and Space Administration (NASA) is the agency of the
+        United States government that is responsible for the nation''s civilian space
+        program and for aeronautics and aerospace research. \nPresident Dwight D.
+        Eisenhower established the National Aeronautics and Space Administration (NASA)
+        in 1958 with a distinctly civilian (rather than military) orientation encouraging
+        peaceful applications in space science. ", "permalink_id": "96427ea031b0ae2b673652cb6e4e1042",
+        "date": null, "document_id": "wikipedia-18426568"}, {"distance": 0.161457,
+        "title": "Unmanned NASA missions", "url": "http://en.wikipedia.org/wiki?curid=33196514",
+        "text": "Following is a sampling of some of NASA''s past and present programs
+        excluding manned spacecraft. The years in brackets are for first and latest
+        launching. A program is a number of flights or missions with the same kind
+        of satellite, therefore the name of the program and the name of the satellite
+        used will often be the same. ", "permalink_id": "3fad11fb7517ffc67bd8ac3329b16200",
+        "date": null, "document_id": "wikipedia-33196514"}, {"distance": 0.163223,
+        "title": "Mars Scout Program", "url": "http://en.wikipedia.org/wiki?curid=4676205",
+        "text": "The Mars Scout Program was a NASA initiative to send a series of
+        small, low-cost robotic missions to Mars, competitively selected from innovative
+        proposals by the scientific community. The program had an array of missions
+        destined to reach Mars, and study it at relatively low costs. Each Scout project
+        was to cost less than US$485 million. ", "permalink_id": "f8bb5eb4b7fc09b9fb7ccc67009fecfa",
+        "date": null, "document_id": "wikipedia-4676205"}, {"distance": 0.163534,
+        "title": "Mars sample return mission", "url": "http://en.wikipedia.org/wiki?curid=4700242",
+        "text": "A Mars sample return mission (MSR) would be a spaceflight mission
+        to collect rock and dust samples from Mars and to return them to Earth. Sample
+        return is a very powerful type of exploration, because analysis is freed from
+        the time, budget, and space constraints of spacecraft sensors. All of Earth''s
+        laboratories can potentially study a sample.\n", "permalink_id": "913820ae65e4bd84271e77396d474be2",
+        "date": null, "document_id": "wikipedia-4700242"}, {"distance": 0.16533, "title":
+        "Mars 2020 rover mission", "url": "http://en.wikipedia.org/wiki?curid=37837437",
+        "text": "The Mars 2020 rover mission is a Mars planetary rover mission concept
+        under study by NASA with a possible launch in 2020. It is intended to investigate
+        an astrobiologically relevant ancient environment on Mars, investigate its
+        surface geological processes and history, including the assessment of its
+        past habitability and potential for preservation of biosignatures within accessible
+        geological materials.\nThe rover''s design will be derived from the \"Curiosity\"
+        rover, and would carry a different scientific payload. ", "permalink_id":
+        "44dea8a07103add5e077adbd4787bc57", "date": null, "document_id": "wikipedia-37837437"},
+        {"distance": 0.167529, "title": "Flagship Program", "url": "http://en.wikipedia.org/wiki?curid=23271745",
+        "text": "The Flagship Program is a series of NASA missions to explore the
+        Solar System. It is the largest and most expensive of three classes of NASA
+        Solar System Programs \u2013 the other two being the Discovery Program, which
+        is the cheapest in cost, and the New Frontiers Program, which is medium-cost.\nAccording
+        to NASA, the cost of Flagship Program missions ranges between $2 billion and
+        $3 billion. ", "permalink_id": "4d3717adfc483ad43d2f1fac4e959a47", "date":
+        null, "document_id": "wikipedia-23271745"}, {"distance": 0.176895, "title":
+        "Europa Jupiter System Mission \u2013 Laplace", "url": "http://en.wikipedia.org/wiki?curid=21195733",
+        "text": "The Europa Jupiter System Mission \u2013 Laplace (EJSM/Laplace) was
+        a proposed joint NASA/ESA unmanned space mission slated to launch around 2020
+        for the in-depth exploration of Jupiter''s moons with a focus on Europa, Ganymede
+        and Jupiter''s magnetosphere. The mission would comprise at least two independent
+        elements, NASA''s Jupiter Europa Orbiter (JEO) and ESA''s Jupiter Ganymede
+        Orbiter (JGO), to perform coordinated studies of the Jovian system.\nThe Japan
+        Aerospace Exploration Agency (JAXA) and the Russian Federal Space Agency (Roscosmos)
+        had expressed their interest in contributing to EJSM/Laplace, although no
+        deals had been finalized. ", "permalink_id": "8be9dd770256321d060f1714aed253fc",
+        "date": null, "document_id": "wikipedia-21195733"}, {"distance": 0.190932,
+        "title": "Constellation program", "url": "http://en.wikipedia.org/wiki?curid=454300",
+        "text": "The Constellation Program (abbreviated CxP) was a human spaceflight
+        program within NASA, the space agency of the United States. The stated goals
+        of the program were to gain significant experience in operating away from
+        Earth''s environment, develop technologies needed for opening the space frontier,
+        and conducting fundamental science.\nConstellation began in response to the
+        goals laid out in the Vision for Space Exploration under NASA Administrator
+        Sean O''Keefe. ", "permalink_id": "9c17dd74abb14b3fb63afbe21fca336e", "date":
+        null, "document_id": "wikipedia-454300"}, {"distance": 0.203133, "title":
+        "Space Transportation System", "url": "http://en.wikipedia.org/wiki?curid=2348552",
+        "text": "The Space Transportation System (STS) was a proposed system of reusable
+        manned space vehicles envisioned by NASA in 1969 to support extended operations
+        beyond the Apollo program. (NASA appropriated the name for its Space Shuttle
+        Program, the only component of the proposal to survive Congressional funding
+        approval.) The purpose of the system was twofold: to reduce the cost of spaceflight
+        by replacing the current method of launching \"capsules\" on expendable rockets
+        with reusable spacecraft; and to support ambitious follow-on programs including
+        permanent orbiting space stations around the Earth and Moon, and a human landing
+        mission to Mars.\n", "permalink_id": "cec97661241d0f9429fd8e804e87d654", "date":
+        null, "document_id": "wikipedia-2348552"}]'
+    http_version: 
+  recorded_at: Thu, 14 May 2015 09:37:15 GMT
+recorded_with: VCR 2.9.3

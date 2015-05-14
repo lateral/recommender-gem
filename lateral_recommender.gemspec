@@ -16,15 +16,13 @@ Gem::Specification.new do |spec|
   spec.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'awesome_print'
-  spec.add_development_dependency 'bundler', '~> 1.6'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'vcr'
-  spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'yard'
+  spec.add_development_dependency 'awesome_print', '~> 1.6.1'
+  spec.add_development_dependency 'rake', '~> 10.4.2'
+  spec.add_development_dependency 'rspec', '~> 3.2.0'
+  spec.add_development_dependency 'vcr', '~> 2.9.3'
+  spec.add_development_dependency 'webmock', '~> 1.21.0'
+  spec.add_development_dependency 'yard', '~> 0.8.7.6'
 
-  spec.add_runtime_dependency 'httpclient'
-  spec.add_runtime_dependency 'json'
-  spec.add_runtime_dependency 'activesupport'
+  spec.add_runtime_dependency 'httparty', '~> 0.13.4'
+  spec.add_runtime_dependency 'json', '~> 1.8.2'
 end

@@ -8,9 +8,9 @@ describe LateralRecommender do
     it 'errors with invalid API key' do
       api = LateralRecommender::API.new 'no'
       VCR.use_cassette('invalid_key') do
-        response = api.near_text 'test'
-        expect(response[:error][:status_code]).to eq(401)
-        expect(response[:error][:message]).to include('invalid subscription key')
+        response = api.recommend_by_text 'test'
+        expect(response[:error][:status_code]).to eq(403)
+        expect(response[:error][:message]).to include('credentials are invalid')
       end
     end
 
@@ -23,61 +23,98 @@ describe LateralRecommender do
     end
 
     it 'gets recommendations from text' do
-      VCR.use_cassette('near_text') do
-        response = api.near_text body
-        expect(response.length).to eq(20)
+      VCR.use_cassette('recommend_by_text') do
+        response = api.recommend_by_text body
+        expect(response.length).to eq(1)
         expect(response.first['document_id']).to eq('doc_id')
       end
     end
 
     it 'gets recommendations by ID' do
-      VCR.use_cassette('near_id') do
-        response = api.near_id 'doc_id'
-        expect(response.length).to eq(20)
+      VCR.use_cassette('recommend_by_id') do
+        response = api.recommend_by_id 'doc_id'
+        expect(response.length).to eq(1)
         expect(response.first['document_id']).to eq('doc_id')
       end
     end
 
-    it 'gets recommendations from text in movies' do
-      api = LateralRecommender::API.new ENV['API_KEY'], 'movies'
-      VCR.use_cassette('near_text_movies') do
-        response = api.near_text body
-        expect(response.length).to eq(19)
-        expect(response.first['title']).to eq('First World')
+    it 'gets recommendations by text in SEC' do
+      api = LateralRecommender::API.new ENV['API_KEY'], 'sec'
+      VCR.use_cassette('recommend_by_text_sec') do
+        response = api.recommend_by_text body, collections: '["item1a"]'
+        expect(response.length).to eq(10)
+        expect(response.first['title']).to include('DIGITALGLOBE, INC._2014_10')
       end
     end
 
-    it 'gets recommendations from text in news' do
+    it 'gets recommendations by ID in SEC' do
+      api = LateralRecommender::API.new ENV['API_KEY'], 'sec'
+      VCR.use_cassette('recommend_by_id_sec') do
+        id = 'SEC_item_1A-http://www.sec.gov/Archives/edgar/data/1099369/0001062993-14-006877.txt_item_1A'
+        response = api.recommend_by_id id, collections: '["item1a"]'
+        expect(response.length).to eq(10)
+        expect(response.first['title']).to include('DESTINY MEDIA TECHNOLOGIES')
+      end
+    end
+
+    it 'gets recommendations by text in news' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'news'
-      VCR.use_cassette('near_text_news') do
-        response = api.near_text body
+      VCR.use_cassette('recommend_by_text_news') do
+        response = api.recommend_by_text body
         expect(response.length).to be > 10 # This should be done better
-        expect(response.first['title']).to include('The Space Missions and Events')
+        expect(response.first['title']).to include('NASA announces details of ')
       end
     end
 
-    it 'gets recommendations from text in wikipedia' do
+    it 'gets recommendations from ID in news' do
+      api = LateralRecommender::API.new ENV['API_KEY'], 'news'
+      VCR.use_cassette('recommend_by_id_news') do
+        response = api.recommend_by_id '3076491'
+        expect(response.length).to be > 10 # This should be done better
+        expect(response.first['title']).to include('Goodbye MongoDB, Hello Pos')
+      end
+    end
+
+    it 'gets recommendations by text in wikipedia' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'wikipedia'
-      VCR.use_cassette('near_text_wikipedia') do
-        response = api.near_text body
+      VCR.use_cassette('recommend_by_text_wikipedia') do
+        response = api.recommend_by_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to eq('Space exploration')
       end
     end
 
-    it 'gets recommendations from text in pubmed' do
+    it 'gets recommendations by ID in wikipedia' do
+      api = LateralRecommender::API.new ENV['API_KEY'], 'wikipedia'
+      VCR.use_cassette('recommend_by_id_wikipedia') do
+        response = api.recommend_by_id 'wikipedia-11589297'
+        expect(response.length).to eq(10)
+        expect(response.first['title']).to eq('Manned mission to Mars')
+      end
+    end
+
+    it 'gets recommendations by text in pubmed' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'pubmed'
-      VCR.use_cassette('near_text_pubmed') do
-        response = api.near_text body
+      VCR.use_cassette('recommend_by_text_pubmed') do
+        response = api.recommend_by_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to include('NASA and the search')
       end
     end
 
-    it 'gets recommendations from text in arxiv' do
+    # it 'gets recommendations by ID in pubmed' do
+    #   api = LateralRecommender::API.new ENV['API_KEY'], 'pubmed'
+    #   VCR.use_cassette('recommend_by_id_pubmed') do
+    #     response = api.recommend_by_id 'pubmed-15881781-1'
+    #     expect(response.length).to eq(10)
+    #     expect(response.first['title']).to include('NASA and the search')
+    #   end
+    # end
+
+    it 'gets recommendations by text in arxiv' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'arxiv'
-      VCR.use_cassette('near_text_arxiv') do
-        response = api.near_text body
+      VCR.use_cassette('recommend_by_text_arxiv') do
+        response = api.recommend_by_text body
         expect(response.length).to eq(10)
         expect(response.first['title']).to include('A Lunar L2-Farside')
       end
@@ -85,82 +122,11 @@ describe LateralRecommender do
 
     it 'gets recommendations by ID in arxiv' do
       api = LateralRecommender::API.new ENV['API_KEY'], 'arxiv'
-      VCR.use_cassette('near_id_arxiv') do
-        response = api.near_id 'arxiv-http://arxiv.org/abs/1403.2165'
+      VCR.use_cassette('recommend_by_id_arxiv') do
+        response = api.recommend_by_id 'arxiv-http://arxiv.org/abs/1403.2165'
         expect(response.length).to eq(10)
         expect(response.first['title']).to include('Set-valued sorting index')
       end
     end
-
-    it 'adds a user' do
-      VCR.use_cassette('add_user') do
-        response = api.add_user('user_id')
-        expect(response['id']).to eq('user_id')
-      end
-    end
-
-    it 'adds a user document' do
-      VCR.use_cassette('add_user_document') do
-        response = api.add_user_document('user_id', 'doc_id', body)
-        expect(response['id']).to eq('doc_id')
-        expect(response['user_id']).to eq('user_id')
-        expect(response['body']).to include('Space exploration')
-      end
-    end
-
-    # TODO: Change this so there is a document ID to validate
-    it 'gets recommendations for a user' do
-      VCR.use_cassette('near_user') do
-        response = api.near_user('user_id')
-        expect(response).to be_a(Array)
-        expect(response.length).to be > 10
-      end
-    end
-
-    it 'gets recommendations for a user from movies' do
-      api = LateralRecommender::API.new ENV['API_KEY'], 'movies'
-      VCR.use_cassette('near_user_movies') do
-        response = api.near_user('user_id')
-        expect(response.length).to eq(19)
-        expect(response.first['title']).to include('First World')
-      end
-    end
-
-    it 'gets recommendations for a user from news' do
-      api = LateralRecommender::API.new ENV['API_KEY'], 'news'
-      VCR.use_cassette('near_user_news') do
-        response = api.near_user('user_id')
-        expect(response.length).to be > 10 # This should be done better
-        expect(response.first['title']).to include('The Space Missions and')
-      end
-    end
-
-    it 'gets recommendations for a user from wikipedia' do
-      api = LateralRecommender::API.new ENV['API_KEY'], 'wikipedia'
-      VCR.use_cassette('near_user_wikipedia') do
-        response = api.near_user('user_id')
-        expect(response.length).to eq(9) # First one is cut because it is same page
-        expect(response.first['title']).to include('Unmanned NASA missions')
-      end
-    end
-
-    it 'gets recommendations for a user from pubmed' do
-      api = LateralRecommender::API.new ENV['API_KEY'], 'pubmed'
-      VCR.use_cassette('near_user_pubmed') do
-        response = api.near_user('user_id')
-        expect(response.length).to eq(10)
-        expect(response.first['title']).to include('NASA and the search for')
-      end
-    end
-
-    it 'gets recommendations for a user from arxiv' do
-      api = LateralRecommender::API.new ENV['API_KEY'], 'arxiv'
-      VCR.use_cassette('near_user_arxiv') do
-        response = api.near_user('user_id')
-        expect(response.length).to eq(10)
-        expect(response.first['title']).to include('A Lunar L2-Farside')
-      end
-    end
-
   end
 end
