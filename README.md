@@ -64,7 +64,7 @@ If you don't want to insert your own documents to the API, you can query one of 
 
 * **[arXiv](https://lateral.io/docs/text-matching/pre-populated-recommenders#arxiv)** - 1M+ academic papers in Physics, Mathematics and Computer Science (updated daily)
 * **[News](https://lateral.io/docs/text-matching/pre-populated-recommenders#news)** - 250,000+ curated news articles (updated every 15mins)
-* **[PubMed](https://lateral.io/docs/text-matching/pre-populated-recommenders#pubmed)** - Medical journals
+* **[PubMed](https://lateral.io/docs/text-matching/pre-populated-recommenders#pubmed)** - 20M+ medical journals (from June 2014)
 * **[SEC Data](https://lateral.io/docs/text-matching/pre-populated-recommenders#sec-data)** - 6,000+ yearly financial reports / 10-K filings (from 2014)
 * **[Wikipedia](https://lateral.io/docs/text-matching/pre-populated-recommenders#wikipedia)** - 463,000 Wikipedia pages (which had 20+ page views in 2013)
 
