@@ -1,6 +1,6 @@
 # LateralRecommender
 
-[![Build Status](https://travis-ci.org/lateral/recommender-gem.svg?branch=master)](https://travis-ci.org/lateral/recommender-gem)
+[![Build Status](https://travis-ci.org/lateral/recommender-gem.svg?branch=master)](https://travis-ci.org/lateral/recommender-gem)  ![Gem Version](https://badge.fury.io/rb/lateral_recommender.svg)
 
 This is a Ruby wrapper around the [Lateral](https://lateral.io/) [Conceptual text-matching API](https://lateral.io/docs/text-matching). At the moment it only supports [/add](https://lateral.io/docs/text-matching/api-reference#add-document-post), [/recommend-by-text](https://lateral.io/docs/text-matching/api-reference#recommend-by-text-post), [/recommend-by-id](https://lateral.io/docs/text-matching/api-reference#recommend-by-id-post) and our [pre-populated recommenders](https://lateral.io/docs/text-matching/pre-populated-recommenders). You can find the full API reference [here](https://lateral.io/docs/text-matching/api-reference).
 
