@@ -1,4 +1,5 @@
 require 'lateral_recommender/version'
+require 'erb'
 require 'httparty'
 require 'json'
 
