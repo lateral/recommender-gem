@@ -5,15 +5,15 @@ require 'json'
 
 module LateralRecommender
   class API
-    EXTERNAL_CORPORA = %w(arxiv news pubmed sec wikipedia)
+    JSON_HEADERS = { 'Content-Type' => 'application/json' }
+    EXTERNAL_CORPORA = %w(arxiv news pubmed sec wikipedia bloomberg-public)
 
     # @param [String] key The Lateral API key
-    # @param [String] corpus The corpora to recommend from e.g. arxiv, sec, pubmed, wikipedia, news
+    # @param [String] corpus The corpora to recommend from e.g. arxiv, sec, pubmed, wikipedia, news, bloomberg-public
     def initialize(key, corpus = 'recommender')
-      corpus = EXTERNAL_CORPORA.include?(corpus) ? corpus : 'recommender'
-      @endpoint = "https://#{corpus}-api.lateral.io/"
+      @corpus = EXTERNAL_CORPORA.include?(corpus) ? corpus : 'recommender'
+      @endpoint = "https://#{@corpus}-api.lateral.io/"
       @key = key
-      # @client = HTTPClient.new
     end
 
     # Add a document to the recommender
@@ -65,7 +65,7 @@ module LateralRecommender
 
     private
 
-    def req(request)
+    def parse_request(request)
       return { error: error(request) } if request.code != 200 && request.code != 201
       JSON.parse(request.body)
     end
@@ -81,11 +81,21 @@ module LateralRecommender
     end
 
     def post(path, params)
-      req HTTParty.post url(path), body: params
+      return parse_request request 'post', path, params if @corpus == 'recommender'
+      parse_request request_json 'post', path, params.merge(collection: [@corpus])
     end
 
     def get(path, params)
-      req HTTParty.get url(path), body: params
+      return parse_request request 'get', path, params if @corpus == 'recommender'
+      parse_request request_json 'get', path, params.merge(collection: [@corpus])
+    end
+
+    def request(method, path, params)
+      HTTParty.send method, url(path), body: params
+    end
+
+    def request_json(method, path, params)
+      HTTParty.send method, url(path), body: params.to_json, headers: JSON_HEADERS
     end
   end
 end
