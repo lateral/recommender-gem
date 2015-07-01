@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://recommender-api.lateral.io/recommend-by-id/?subscription-key=<API_KEY>
+    body:
+      encoding: UTF-8
+      string: document_id=doc_id
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Jul 2015 10:25:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '49'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - TornadoServer/4.2b1
+      Via:
+      - kong/0.3.2
+    body:
+      encoding: UTF-8
+      string: '[{"distance": 0.004031, "document_id": "doc_id"}]'
+    http_version: 
+  recorded_at: Wed, 01 Jul 2015 10:25:18 GMT
+recorded_with: VCR 2.9.3

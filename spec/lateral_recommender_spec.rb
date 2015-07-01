@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe LateralRecommender do
-
   # Clear the test key first
   HTTParty.post "https://recommender-api.lateral.io/delete-all/?subscription-key=#{ENV['API_KEY']}"
 
@@ -10,28 +9,36 @@ describe LateralRecommender do
     let(:body) { File.read('spec/fixtures/article-body.txt') }
 
     it 'errors with invalid API key' do
-      api = LateralRecommender::API.new 'no'
-      response = api.recommend_by_text 'test'
-      expect(response[:error][:status_code]).to eq(403)
-      expect(response[:error][:message]).to include('Invalid authentication credentials')
+      VCR.use_cassette('invalid_key') do
+        api = LateralRecommender::API.new 'no'
+        response = api.recommend_by_text 'test'
+        expect(response[:error][:status_code]).to eq(403)
+        expect(response[:error][:message]).to include('Invalid authentication credentials')
+      end
     end
 
     it 'adds a document' do
-      response = api.add document_id: 'doc_id', text: body
-      expect(response['document_id']).to eq('doc_id')
-      expect(response['text']).to include('Space exploration')
+      VCR.use_cassette('add') do
+        response = api.add document_id: 'doc_id', text: body
+        expect(response['document_id']).to eq('doc_id')
+        expect(response['text']).to include('Space exploration')
+      end
     end
 
     it 'gets recommendations from text' do
-      response = api.recommend_by_text body
-      expect(response.length).to eq(1)
-      expect(response.first['document_id']).to eq('doc_id')
+      VCR.use_cassette('recommend_by_text') do
+        response = api.recommend_by_text body
+        expect(response.length).to eq(1)
+        expect(response.first['document_id']).to eq('doc_id')
+      end
     end
 
     it 'gets recommendations by ID' do
-      response = api.recommend_by_id 'doc_id'
-      expect(response.length).to eq(1)
-      expect(response.first['document_id']).to eq('doc_id')
+      VCR.use_cassette('recommend_by_id') do
+        response = api.recommend_by_id 'doc_id'
+        expect(response.length).to eq(1)
+        expect(response.first['document_id']).to eq('doc_id')
+      end
     end
 
     it 'gets recommendations by text in SEC' do

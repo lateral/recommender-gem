@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://recommender-api.lateral.io/recommend-by-text/?subscription-key=no
+    body:
+      encoding: UTF-8
+      string: text=test
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Wed, 01 Jul 2015 10:24:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - kong/0.3.2
+    body:
+      encoding: UTF-8
+      string: |
+        {"message":"Invalid authentication credentials"}
+    http_version: 
+  recorded_at: Wed, 01 Jul 2015 10:25:16 GMT
+recorded_with: VCR 2.9.3
